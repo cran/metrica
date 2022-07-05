@@ -8,48 +8,71 @@ metrics_summary(
   data = NULL,
   obs,
   pred,
+  type = NULL,
+  metrics_list = NULL,
   orientation = "PO",
-  na.rm = TRUE,
-  metrics_list = NULL
+  pos_level = 2,
+  na.rm = TRUE
 )
 }
 \arguments{
-\item{data}{(Optional) argument to call an existing data frame containing the data.}
+\item{data}{argument to call an existing data frame containing the data (optional).}
 
 \item{obs}{vector with observed values (numeric).}
 
 \item{pred}{vector with predicted values (numeric).}
 
+\item{type}{argument of class string specifying the type of model. For continuous
+variables use \emph{type = 'regression'}. For categorical variables use \emph{type = 'classification'}.}
+
+\item{metrics_list}{vector or list of specific selected metrics. Default is = NULL,
+which will estimate all metrics available for either regression or classification.}
+
 \item{orientation}{argument of class string specifying the axis
-orientation to estimate slope(B1) and intercept(B0).
+orientation to estimate slope(B1) and intercept(B0). It only applies when type = "regression".
 "PO" is for predicted vs observed, and "OP" for observed vs predicted.
 Default is orientation = "PO".}
 
+\item{pos_level}{(for classification only). Integer, for binary cases, indicating the order (1|2) of the level
+corresponding to the positive. Generally, the positive level is the second (2)
+since following an alpha-numeric order, the most common pairs are
+\code{(Negative | Positive)}, \code{(0 | 1)}, \code{(FALSE | TRUE)}. Default : 2.}
+
 \item{na.rm}{Logic argument to remove rows with missing values
 (NA). Default is na.rm = TRUE.}
-
-\item{metrics_list}{vector or list of specific selected metrics. Default is = NULL,
-which will estimate all metrics available.}
 }
 \value{
 an object of class \code{data.frame} containing all (or selected) metrics.
 }
 \description{
 It estimates a group of metrics characterizing the prediction performance
-for a continuous predicted-observed dataset. By default, it calculates all available metrics.
+for a continuous (regression) or categorical (classification) predicted-observed dataset.
+By default, it calculates all available metrics for either regression or classification.
 }
 \details{
 The user can choose to calculate a single metric, or to calculate all metrics at once.
 This function creates a data.frame with all (or selected) metrics in the \code{metrica}-package.
 If looking for specific metrics, the user can pass a list of desired metrics using the
 argument “metrics_list” (e.g. metrics_list = c("R2","MAE", "RMSE", "RSR", "NSE", "KGE")).
-For the entire list of available metrics with formula, see \href{https://adriancorrendo.github.io/metrica/articles/available_metrics.html}{online documentation}
+For the entire list of available metrics with formula,
+see \href{https://adriancorrendo.github.io/metrica/}{online-documentation}
 }
 \examples{
 \donttest{
+# Continuous variable (regression)
 X <- rnorm(n = 100, mean = 0, sd = 10)
 Y <- rnorm(n = 100, mean = 0, sd = 10)
-df <- data.frame(obs = X, pred = Y)
-metrics_summary(df, obs = X, pred = Y)
+regression_case <- data.frame(obs = X, pred = Y)
+
+# Get a metrics summary for a regression problem
+metrics_summary(regression_case, obs = X, pred = Y, type = "regression")
+
+# Categorical variable (classification)
+binomial_case <- data.frame(labels = sample(c("True","False"), 100, 
+replace = TRUE), predictions = sample(c("True","False"), 100, replace = TRUE))
+
+#' # Get a metrics summary for a regression problem
+metrics_summary(binomial_case, obs = labels, pred = predictions,
+type = "classification")
 }
 }
