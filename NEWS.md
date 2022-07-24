@@ -1,3 +1,20 @@
+# metrica 2.0.1
+
+* July 23th, 2022. <br/>
+
+This new version fixes minor bugs found in v2.0.0:
+
+1) regression lines with "OP" orientation in scatter_plot(), density_plot(), and tiles_plot(), which were producing the "PO" oriented regression lines instead.
+
+2) estimation of "d1r" index for regression, which produced misleading values due to a typo in the denominator.
+
+3) printing metrics on confusion matrix, which produced a NaN when printing 9 metrics.
+
+
+######################################################################################################
+
+- PREVIOUS VERSIONS
+
 # metrica 2.0.0
 
 * July 4th, 2022. <br/>
@@ -82,12 +99,7 @@ This new version of metrica includes:
 
 10) Updated vignettes creating independent versions for classification and regression models, and for importing APSIM files.
 
-
-######################################################################################################
-
-# Previous versions
-
-# metrica 1.2.3 (CRAN)
+# metrica 1.2.3
 
 * May, 10, 2022. <br/>
 
@@ -96,13 +108,13 @@ Maintenance update fixing minor errors after feedback from CRAN submission of v1
 Also, the available metrics vignette was updated adding the corresponding citations of 
 formulae used into functions.
 
-# metrica 1.2.2 (dev)
+# metrica 1.2.2
 
 * May, 05, 2022. <br/>
 
 Maintenance update fixing minor bugs related to checks before CRAN submission (e.g. spelling check, URLs, DOIs, etc.)
 
-# metrica 1.2.1 (dev)
+# metrica 1.2.1
 
 Minor updates (1.2.1):
 
@@ -122,7 +134,7 @@ print.metrics | print_metrics
 
 ---------------------
 
-New features (1.2.0) (dev):
+New features (1.2.0)
 
 Data: a new (Optional) arg. called "data" is included for all functions,
 which serves to call an existing data frame containing the predicted-observed data.

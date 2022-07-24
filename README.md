@@ -17,7 +17,7 @@ downloads](https://cranlogs.r-pkg.org/badges/last-month/metrica?color=blue)](htt
 status](https://ci.appveyor.com/api/projects/status/github/adriancorrendo/metrica?branch=master&svg=true)](https://ci.appveyor.com/project/adriancorrendo/metrica)
 [![R-CMD-check](https://github.com/adriancorrendo/metrica/workflows/R-CMD-check/badge.svg)](https://github.com/adriancorrendo/metrica/actions)
 [![codecov](https://codecov.io/gh/adriancorrendo/metrica/branch/master/graph/badge.svg?token=CfK5NhXzYn)](https://app.codecov.io/gh/adriancorrendo/metrica)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6543296.svg)](https://doi.org/10.5281/zenodo.6543296)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6474101.svg)](https://doi.org/10.5281/zenodo.6474101)
 
 <!-- badges: end -->
 
@@ -149,18 +149,47 @@ devtools::install_github("adriancorrendo/metrica")
 ## 2. Native datasets
 
 The *metrica* package comes with four example datasets of continuous
-variables (regression) from the APSIM software: <br/> 1. `wheat`. 137
-data-points of wheat grain N (grams per squared meter) <br/> 2.
-`barley`. 69 data-points of barley grain number (x1000 grains per
-squared meter) <br/> 3. `sorghum`. 36 data-points of sorghum grain
-number (x1000 grains per squared meter) <br/> 4. `chickpea`. 39
-data-points of chickpea aboveground dry mass (kg per hectare) <br/>
+variables (regression) from the APSIM software: <br/>
+
+1.  `wheat`. 137 data-points of wheat grain N (grams per squared meter)
+    <br/>
+2.  `barley`. 69 data-points of barley grain number (x1000 grains per
+    squared meter) <br/>
+3.  `sorghum`. 36 data-points of sorghum grain number (x1000 grains per
+    squared meter) <br/>
+4.  `chickpea`. 39 data-points of chickpea aboveground dry mass (kg per
+    hectare) <br/>
 
 These data correspond to the latest, up-to-date, documentation and
 validation of version number 2020.03.27.4956. Data available at:
 <https://doi.org/10.7910/DVN/EJS4M0>. Further details can be found at
 the official APSIM Next Generation website:
 <https://APSIMnextgeneration.netlify.app/modeldocumentation> <br/>
+
+In addition, `metrica` also provides two native examples for categorical
+variables (classification):
+
+5.  `land_cover` is a binary dataset of land cover using satellite
+    images obtained in 2022 over a small region in Kansas (USA). Values
+    equal to 1 are associated to vegetation, and values equal to 0
+    represent other type of land cover. Observed values come from human
+    visualization, while predicted values were obtained with a Random
+    Forest classifier.<br/>
+
+6.  `maize_phenology` is a data set of maize/corn (*Zea mays* L.)
+    phenology (crop development stage) collected in Kansas (USA)
+    during 2018. The data includes 16 different phenology stages.
+    Observed values were obtained via human visualization, while
+    predicted values were obtained with a Random Forest classifier.
+    <br/>
+
+Any of the above-mentioned data sets can be called with
+`metrica::name_of_dataset`, for example: <br/>
+
+``` r
+metrica::wheat
+metrica::land_cover
+```
 
 ## 3. Example Code
 
@@ -239,7 +268,7 @@ barley.tiles.plot <-
                       obs = measured, 
                       pred = simulated,
                       bins = 10, 
-                      orientation = "OP",
+                      orientation = "PO",
                       colors = c(low = "pink", high = "steelblue"))
 
 barley.tiles.plot
@@ -254,7 +283,7 @@ barley.density.plot <-
 metrica::density_plot(data = example.data, 
                       obs = measured, pred = simulated,
                       n = 5, 
-                      orientation = "OP", 
+                      orientation = "PO", 
            colors = c(low = "white", high = "steelblue") )+
   theme(legend.position = "none")
 
@@ -423,6 +452,8 @@ df <- metrica::wheat
 # Create list of selected metrics
 selected.metrics <- c("MAE","RMSE", "RRMSE", "R2", "NSE", "KGE", "PLA", "PLP")
 
+
+df <- metrica::wheat
 # Create the plot
 plot <- metrica::scatter_plot(data = df, 
                               obs = obs, pred = pred,
@@ -431,9 +462,9 @@ plot <- metrica::scatter_plot(data = df,
                               # Indicate metrics list
                               metrics_list = selected.metrics,
                               # Customize metrics position
-                              position_metrics = c(x = 1 , y = 20),
+                              position_metrics = c(x = 16 , y = 9),
                               # Customize equation position
-                              position_eq = c(x = 7, y = 19.5))
+                              position_eq = c(x = 16.2, y = 9.5))
 
 plot
 ```
