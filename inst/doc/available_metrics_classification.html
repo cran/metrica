@@ -10,9 +10,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<meta name="author" content="Adrian Correndo &amp; Luciana Nieto" />
+<meta name="author" content="Luciana Nieto &amp; Adrian Correndo" />
 
-<meta name="date" content="2022-07-24" />
+<meta name="date" content="2023-04-02" />
 
 <title>Classification performance metrics and indices</title>
 
@@ -31,13 +31,13 @@ document.addEventListener('DOMContentLoaded', function(e) {
 </script>
 
 <style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
 
 
 
@@ -239,8 +239,8 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">Classification performance metrics and
 indices</h1>
-<h4 class="author">Adrian Correndo &amp; Luciana Nieto</h4>
-<h4 class="date">2022-07-24</h4>
+<h4 class="author">Luciana Nieto &amp; Adrian Correndo</h4>
+<h4 class="date">2023-04-02</h4>
 
 
 
@@ -340,9 +340,9 @@ between 0 and 1. Being 0 the best and 1 the worst</td>
 </tr>
 <tr class="odd">
 <td align="left">3</td>
-<td align="left"><code>precision</code></td>
+<td align="left"><code>precision</code>, <code>ppv</code></td>
 <td align="left">Precision</td>
-<td align="left">Also known as positive predictive value (PPV), it
+<td align="left">Also known as positive predictive value (ppv), it
 represents the proportion of well classified cases with respect to the
 total of cases predicted with a given class (multinomial) or the true
 class (binomial)</td>
@@ -351,7 +351,8 @@ FP}\)</span></td>
 </tr>
 <tr class="even">
 <td align="left">4</td>
-<td align="left"><code>recall</code></td>
+<td align="left"><code>recall</code>, <code>sensitivity</code>,
+<code>TPR</code>, <code>hitrate</code></td>
 <td align="left">Recall</td>
 <td align="left">Also known as sensitivity, hit rate, or true positive
 rate (TPR) for binary cases. It represents the proportion of well
@@ -362,7 +363,8 @@ FNR\)</span></td>
 </tr>
 <tr class="odd">
 <td align="left">5</td>
-<td align="left"><code>specificity</code></td>
+<td align="left"><code>specificity</code>, <code>selectivity</code>,
+<code>TNR</code></td>
 <td align="left">Specificity</td>
 <td align="left">Also known as selectivity or true negative rate (TNR).
 It represents the proportion of well classified negative values with
@@ -423,7 +425,7 @@ FN * FP)}{(TP+FP) * (FP+TN) + (TP+FN) * (FN + TN)}\)</span></td>
 </tr>
 <tr class="odd">
 <td align="left">11</td>
-<td align="left"><code>mcc</code></td>
+<td align="left"><code>mcc</code>, <code>phi_coef</code></td>
 <td align="left">Matthews Correlation Coefficient</td>
 <td align="left">Also known as phi-coefficient. It is particularly
 useful when the number of observations belonging to each class is
@@ -446,7 +448,7 @@ recall} = \sqrt{PPV * TPR}\)</span></td>
 </tr>
 <tr class="odd">
 <td align="left">13</td>
-<td align="left"><code>bmi</code></td>
+<td align="left"><code>bmi</code>, <code>jindex</code></td>
 <td align="left">Informedness</td>
 <td align="left">Also known as the Bookmaker Informedness, or as the
 Youden’s J-index. It is a suitable metric when the number of cases for
@@ -518,7 +520,7 @@ could vary between 0 and 1. The lower the better.</td>
 <td align="left"><code>FDR</code></td>
 <td align="left">False Detection Rate</td>
 <td align="left">It represents the complement of <code>precision</code>
-(or positive predictive value -<code>PPV</code>-). It could vary between
+(or positive predictive value -<code>ppv</code>-). It could vary between
 0 and 1, being 0 the best and 1 the worst</td>
 <td align="left"><span class="math inline">\(FDR = 1 - precision =
 \frac{FP}{PP} = \frac{FP}{TP + FP}\)</span></td>
@@ -552,21 +554,22 @@ between 0 and 1. Being 0 the best and 1 the worst</td>
 </tr>
 <tr class="even">
 <td align="left">24</td>
-<td align="left"><code>csi</code></td>
+<td align="left"><code>csi</code>, <code>jaccardindex</code></td>
 <td align="left">Critical Success Index</td>
 <td align="left">The <code>csi</code> is also known as the threat score
-(TS). It could vary between 0 and 1, being 0 the worst and 1 the
-best</td>
+(TS) or Jaccard’s Index. It could vary between 0 and 1, being 0 the
+worst and 1 the best</td>
 <td align="left"><span class="math inline">\(csi =
 \frac{TP}{TP+FP+TN}\)</span></td>
 </tr>
 <tr class="odd">
 <td align="left">25</td>
-<td align="left"><code>deltap</code></td>
+<td align="left"><code>deltap</code>, <code>mk</code></td>
 <td align="left">Markedness or deltap</td>
-<td align="left">The <code>deltap</code> is a metric that quantifies the
-probability that a condition is marked by the predictor with respect to
-a random chance</td>
+<td align="left">The <code>deltap</code> (a.k.a. Markedness
+-<code>mk</code>-) is a metric that quantifies the probability that a
+condition is marked by the predictor with respect to a random
+chance</td>
 <td align="left"><span class="math inline">\(deltap = precision+npv-1 =
 PPV + NPV -1\)</span></td>
 </tr>
@@ -585,6 +588,20 @@ classifier.</td>
 </tbody>
 </table>
 <p><br /></p>
+<p><strong>List of additional abbreviations:</strong></p>
+<p>P = positive (true + false)</p>
+<p>N = negative (true + false)</p>
+<p>TP = true positive</p>
+<p>TN = true negative</p>
+<p>FP = false positive</p>
+<p>FN = false negative</p>
+<p>TPR = true positive rate</p>
+<p>TNR = true negative rate</p>
+<p>FPR = false positive rate</p>
+<p>FNR = false negative rate</p>
+<p>ppv = positive predictive value</p>
+<p>B = coefficient B (a.k.a. beta) indicating the weight to be applied
+to the estimation of <code>fscore</code> (as <span class="math inline">\(B^2\)</span>).</p>
 </div>
 <div id="references" class="section level2">
 <h2>References: <br /></h2>
@@ -592,10 +609,9 @@ classifier.</td>
 <li><p>Ting K.M. (2017). Confusion Matrix. <em>In: Sammut C., Webb G.I.
 (eds) Encyclopedia of Machine Learning and Data Mining. Springer,
 Boston, MA.</em> </p></li>
-<li><ol start="2017" style="list-style-type: decimal">
-<li>Accuracy. <em>In: Sammut C., Webb G.I. (eds) Encyclopedia of Machine
-Learning and Data Mining</em> <em>. Springer, Boston, MA.</em> </li>
-</ol></li>
+<li><p>Accuracy. (2017). <em>In: Sammut C., Webb G.I. (eds) Encyclopedia
+of Machine Learning and Data Mining</em> <em>. Springer, Boston,
+MA.</em> </p></li>
 <li><p>García, V., Mollineda, R.A., Sánchez, J.S. (2009). Index of
 Balanced Accuracy: A Performance Measure for Skewed Class Distributions.
 <em>In: Araujo, H., Mendonça, A.M., Pinho, A.J., Torres, M.I. (eds)
@@ -605,10 +621,9 @@ Computer Science, vol 5524. Springer-Verlag Berlin Heidelberg.</em>
 <li><p>Ting K.M. (2017). Precision and Recall. <em>In: Sammut C., Webb
 G.I. (eds) Encyclopedia of Machine Learning and Data Mining. Springer,
 Boston, MA.</em> </p></li>
-<li><ol start="2017" style="list-style-type: decimal">
-<li>Sensitivity. <em>In: Sammut C., Webb G.I. (eds) Encyclopedia of
-Machine Learning and Data Mining. Springer, Boston, MA.</em> </li>
-</ol></li>
+<li><p>Sensitivity. (2017). <em>In: Sammut C., Webb G.I. (eds)
+Encyclopedia of Machine Learning and Data Mining. Springer, Boston,
+MA.</em> </p></li>
 <li><p>Ting K.M. (2017). Sensitivity and Specificity. <em>In: Sammut C.,
 Webb G.I. (eds) Encyclopedia of Machine Learning and Data Mining.
 Springer, Boston, MA.</em> </p></li>

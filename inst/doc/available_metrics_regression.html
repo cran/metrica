@@ -12,7 +12,7 @@
 
 <meta name="author" content="Adrian Correndo" />
 
-<meta name="date" content="2022-07-24" />
+<meta name="date" content="2023-04-02" />
 
 <title>Regression performance metrics and indices</title>
 
@@ -31,13 +31,13 @@ document.addEventListener('DOMContentLoaded', function(e) {
 </script>
 
 <style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
 
 
 
@@ -240,7 +240,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <h1 class="title toc-ignore">Regression performance metrics and
 indices</h1>
 <h4 class="author">Adrian Correndo</h4>
-<h4 class="date">2022-07-24</h4>
+<h4 class="date">2023-04-02</h4>
 
 
 
@@ -408,7 +408,8 @@ accuracy (Xa) components. Easy to interpret. Lin (1989)</td>
 absolute scale. It keeps the same units than the response variable. Less
 sensitive to outliers than the MSE or RMSE. Willmott &amp; Matsuura
 (2005)</td>
-<td align="left">$MAE = $</td>
+<td align="left"><span class="math inline">\(MAE = \frac{1}{n} \sum{|O_i
+- P_i|}\)</span></td>
 </tr>
 <tr class="even">
 <td align="left">12</td>
@@ -525,7 +526,7 @@ units than the variable of interest. Very sensitive to outliers</td>
 <td align="left">Relative Root Mean Squared Error</td>
 <td align="left">RMSE normalized by the mean of observations</td>
 <td align="left"><span class="math inline">\(RRMSE =
-100\frac{\sqrt{\frac{1}{n} \sum{(P_i - O_i)^2}}}{\bar{O}}\)</span></td>
+\frac{\sqrt{\frac{1}{n} \sum{(P_i - O_i)^2}}}{\bar{O}}\)</span></td>
 </tr>
 <tr class="even">
 <td align="left">24</td>
@@ -533,8 +534,8 @@ units than the variable of interest. Very sensitive to outliers</td>
 <td align="left">Root Mean Standard Deviation Ratio</td>
 <td align="left">RMSE normalized by the standard deviation of
 observations. Moriasi et al. (2007)</td>
-<td align="left"><span class="math inline">\(RSR = 100\frac{1}{n}
-\sum{(P_i - O_i)^2}\)</span></td>
+<td align="left"><span class="math inline">\(RSR = \frac{1}{n} \sum{(P_i
+- O_i)^2}\)</span></td>
 </tr>
 <tr class="odd">
 <td align="left">25</td>
@@ -543,7 +544,7 @@ observations. Moriasi et al. (2007)</td>
 <td align="left">RMSE normalized by the interquartile range length
 (between percentiles 25th and 75th)</td>
 <td align="left"><span class="math inline">\(iqRMSE =
-100\frac{\sqrt{\frac{1}{n} \sum{(P_i - O_i)^2}}}{[75^{th} percentile -
+\frac{\sqrt{\frac{1}{n} \sum{(P_i - O_i)^2}}}{[75^{th} percentile -
 25^{th} percentile]}\)</span></td>
 </tr>
 <tr class="even">
@@ -760,8 +761,9 @@ precision. Dimensionless (normalized). Bounded [-1;1]. Symmetric.
 Equivalent to CCC when <code>r</code> is greater or equal to 0.
 Duveiller et al. (2016)</td>
 <td align="left"><span class="math inline">\(\lambda = 1 -
-\frac{\frac{1}{n}\sum(O_i-P_i)^2}{S^2_P+S^2_O+(\bar{O}-\bar{P})^2+k}\)</span>
-<br /> where <br /> $k = 0,, if,, r $, <br /> otherwise <br /> <span class="math inline">\(k =
+\frac{\frac{1}{n}\sum(O_i-P_i)^2}{S^2_P+S^2_O+(\bar{O}-\bar{P})^2+
+n^{-1}k}\)</span> <br /> where <br /> <span class="math inline">\(k =
+0\,\, if\,\, r \geq{0}\)</span>, <br /> otherwise <br /> <span class="math inline">\(k =
 2|\sum[(O_i-\bar{O})(P_i-\bar{P})]|\)</span></td>
 </tr>
 <tr class="even">

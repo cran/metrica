@@ -1,3 +1,39 @@
+# metrica 2.0.2
+
+This new version fixes minor bugs from version 2.0.1, typos, update and add new vignettes, and add alternative functions to several classification performance metrics. Details:
+
+This new development version fixes minor bugs found in v2.0.1:
+
+1) Adding "Contributing"" and "Code of conduct"" sections to the README file.
+
+2) Adding "CODE_OF_CONDUCT.md" file.
+
+3) Adding a list of abbreviations used on the vignette "Available Classification Metrics".
+
+4) Fixing a bug on the PLA and PLP formulas, which were not working when the `data` argument was specified.
+
+5) Corrects, on the DESCRIPTION file, the minimum R version required (from 2.1.0 to 3.6.2)
+
+6) Including an "extdata" directory containing APSIM example files (soybean.out & soybean.example.db)
+
+7) Fix typos in the documentation of RRMSE, RSR, and iqRMSE, which formulas were corrected (removing 100 from the beginning of formulas.
+
+8) Add alternative functions to recall performing identical job such as (i) sensitivity, (ii) True Positive Rate -TPR-, and (iii) Hit Rate -hitrate-.
+
+9) Add alternative functions to specificity performing identical job such as (i) selectivity, (ii) True Negative Rate -TNR-.
+
+12) Add vignettes related to (i) publication of metrica on the Journal of Open Source Software (JOSS),  (ii) the metrica `ShinyApp`, and (iii) the new `cheatsheets` of the metrica package.
+
+11) Make a correction on the vignette specifying the formula of Duveiller's `lambda()`, which by the way does not affect the `lambda()` function itself.
+
+10) Add alternative functions to precision (`ppv()`), mcc (`phi_coef()`), bmi (`jindex()`), csi (`jaccardindex()`), and deltap (`mk()`).
+
+11) Add `CITATION` file into "inst/" folder following `bibentry` format.
+
+######################################################################################################
+
+- PREVIOUS VERSIONS
+
 # metrica 2.0.1
 
 * July 23th, 2022. <br/>
@@ -10,10 +46,6 @@ This new version fixes minor bugs found in v2.0.0:
 
 3) printing metrics on confusion matrix, which produced a NaN when printing 9 metrics.
 
-
-######################################################################################################
-
-- PREVIOUS VERSIONS
 
 # metrica 2.0.0
 

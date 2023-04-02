@@ -18,7 +18,8 @@ status](https://ci.appveyor.com/api/projects/status/github/adriancorrendo/metric
 [![R-CMD-check](https://github.com/adriancorrendo/metrica/workflows/R-CMD-check/badge.svg)](https://github.com/adriancorrendo/metrica/actions)
 [![codecov](https://codecov.io/gh/adriancorrendo/metrica/branch/master/graph/badge.svg?token=CfK5NhXzYn)](https://app.codecov.io/gh/adriancorrendo/metrica)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6474101.svg)](https://doi.org/10.5281/zenodo.6474101)
-
+[![status](https://joss.theoj.org/papers/10.21105/joss.04655/status.svg)](https://joss.theoj.org/papers/10.21105/joss.04655)
+[![R-CMD-check](https://github.com/adriancorrendo/metrica/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/adriancorrendo/metrica/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 ## Introduction <br/>
@@ -27,12 +28,12 @@ status](https://ci.appveyor.com/api/projects/status/github/adriancorrendo/metric
 <br/> `metrica` is a compilation of more than 80 functions designed to
 quantitatively and visually evaluate the prediction performance of
 regression (continuous variables) and classification (categorical
-variables) point-forecast models (e.g. APSIM, DSSAT, DNDC, Supervised
+variables) point-forecast models (e.g. APSIM, DSSAT, DNDC, Supervised
 Machine Learning). `metrica` offers a toolbox with a wide spectrum of
 goodness of fit, error metrics, indices, and coefficients accounting for
 different aspects of the agreement between predicted and observed
 values, plus some basic visualization functions to assess models
-performance (e.g. confusion matrix, scatter with regression line;
+performance (e.g. confusion matrix, scatter with regression line;
 Bland-Altman plot) provided in customizable format (ggplot).
 
 For supervised models, always keep in mind the concept of
@@ -45,24 +46,28 @@ Check the Documentation at <https://adriancorrendo.github.io/metrica/>
 
 **Vignettes** <br/>
 
-[1. List of metrics for
-Regression](https://adriancorrendo.github.io/metrica/articles/available_metrics_regression.html)
+[1. List of metrics for Regression](https://adriancorrendo.github.io/metrica/articles/available_metrics_regression.html)
 <br/>
 
-[2. List of metrics for
-Classification](https://adriancorrendo.github.io/metrica/articles/available_metrics_classification.html)
+[2. List of metrics for Classification](https://adriancorrendo.github.io/metrica/articles/available_metrics_classification.html)
 <br/>
 
-[3. A regression case (numerical
-variables)](https://adriancorrendo.github.io/metrica/articles/regression_case.html)
+[3. A regression case (numerical variables)](https://adriancorrendo.github.io/metrica/articles/regression_case.html)
 <br/>
 
-[4. A classification case (categorical
-variables)](https://adriancorrendo.github.io/metrica/articles/classification_case.html)
+[4. A classification case (categorical variables)](https://adriancorrendo.github.io/metrica/articles/classification_case.html)
 <br/>
 
-[5. Import files from
-APSIM](https://adriancorrendo.github.io/metrica/articles/apsim_open.html)
+[5. Import files from APSIM](https://adriancorrendo.github.io/metrica/articles/apsim_open.html)
+<br/>
+
+[6. JOSS publication](https://adriancorrendo.github.io/metrica/articles/JOSS_publication.html)
+<br/>
+
+[7. metrica Shiinyapp](https://adriancorrendo.github.io/metrica/articles/Shinyapp.html)
+<br/>
+
+[8. Cheatsheet](https://adriancorrendo.github.io/metrica/articles/Cheatsheet.html)
 <br/>
 
 ## Functions <br/>
@@ -82,18 +87,20 @@ Mean Absolute Scaled Error (MASE). <br/>
 For classification (binomial and multinomial) tasks, it includes a
 function to visualize the confusion matrix using ggplot2, and 27
 functions of prediction scores including: accuracy, error rate,
-precision, recall, specificity, balanced accuracy (balacc), F-score
-(fscore), adjusted F-score (agf), G-mean (gmean), Bookmaker Informedness
-(bmi, a.k.a. Youden’s J-index), Markedness (deltaP), Matthews
-Correlation Coefficient (mcc), Cohen’s Kappa (khat), negative predictive
-value (npv), positive and negative likelihood ratios (posLr, negLr),
-diagnostic odds ratio (dor), prevalence (preval), prevalence threshold
-(preval_t), critical success index (csi, a.k.a. threat score), false
-positive rate (FPR), false negative rate (FNR), false detection rate
-(FDR), false omission rate (FOR), and area under the ROC curve
+precision (predictive positive value -ppv-), recall (or true positive
+rate-TPR-), specificity (or true negative rate-TNR-, or selectivity),
+balanced accuracy (balacc), F-score (fscore), adjusted F-score (agf),
+G-mean (gmean), Bookmaker Informedness (bmi, a.k.a. Youden’s J-index -jindex-),
+Markedness (deltaP, or mk), Matthews Correlation Coefficient (mcc, a.k.a.
+phi-coefficient), Cohen’s Kappa (khat), negative predictive value (npv),
+positive and negative likelihood ratios (posLr, negLr), diagnostic odds
+ratio (dor), prevalence (preval), prevalence threshold (preval_t),
+critical success index (csi, a.k.a. threat score or Jaccard Index -jaccardindex-),
+false positive rate (FPR), false negative rate (FNR), false detection
+rate (FDR), false omission rate (FOR), and area under the ROC curve
 (AUC_roc). <br/>
 
-`metrica` also offers a function that allows users to run all prediction
+`metrica` also offers a function (\code{metrics_summary}) that allows users to run all prediction
 performance scores at once. The user just needs to specify the type of
 model (“regression” or “classification”). <br/>
 
@@ -232,6 +239,7 @@ example.data <- barley %>%  # or 'wheat', 'sorghum', or 'chickpea'
 ### 3.1.1.1. Create a customizable scatter plot with PO orientation
 
 ``` r
+
 barley.scat.plot <- 
   metrica::scatter_plot(data = example.data, 
                         obs = measured, 
@@ -256,6 +264,7 @@ barley.scat.plot
 <img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
 
 ``` r
+
 # Alternative using vectors instead of dataframe
 #metrica::scatter_plot(obs = example.data$obs, pred = example.data$pred)
 ```
@@ -343,6 +352,7 @@ metrica::B1_sma(data = example.data, obs = measured, pred = simulated)
 ### 3.1.2.2. Metrics Summary
 
 ``` r
+
 metrics.sum <- metrics_summary(data = example.data, 
                                obs = measured, pred = simulated,
                                type = "regression")  
@@ -410,8 +420,9 @@ head(nested.examples %>% group_by(id) %>% dplyr::slice_head(n=2))
 # b. Run 
 multiple.sum <- nested.examples %>% 
   # Store metrics in new.column "performance"
-  mutate(performance = map(data, ~metrica::metrics_summary(data=., obs = obs, pred = pred, 
-                                                           type = "regression")))
+  mutate(performance = map(
+    data, ~metrica::metrics_summary(data=., obs = obs, pred = pred, 
+                                    type = "regression")))
 
 head(multiple.sum)
 #> # A tibble: 4 × 3
@@ -614,15 +625,15 @@ binomial_case %>% metrics_summary(data = ., obs = labels, pred = predictions, ty
 
 # Multinomial
 multinomial_case %>% metrics_summary(data = ., obs = labels, pred = predictions, type = "classification")
-#> Warning in metrica::fscore(data = ~., obs = ~labels, pred = ~predictions, :
-#> For multiclass cases, the fscore should be estimated at a class level. Please,
+#> Warning in metrica::fscore(data = ~., obs = ~labels, pred = ~predictions, : For
+#> multiclass cases, the fscore should be estimated at a class level. Please,
 #> consider using `atom = TRUE`
-#> Warning in metrica::agf(data = ~., obs = ~labels, pred = ~predictions, pos_level
-#> = pos_level): For multiclass cases, the agf should be estimated at a class
-#> level. Please, consider using `atom = TRUE`
-#> Warning in metrica::fmi(data = ~., obs = ~labels, pred = ~predictions, pos_level
-#> = pos_level): The Fowlkes-Mallows Index is not available for multiclass cases.
-#> The result has been recorded as NaN.
+#> Warning in metrica::agf(data = ~., obs = ~labels, pred = ~predictions,
+#> pos_level = pos_level): For multiclass cases, the agf should be estimated at a
+#> class level. Please, consider using `atom = TRUE`
+#> Warning in metrica::fmi(data = ~., obs = ~labels, pred = ~predictions,
+#> pos_level = pos_level): The Fowlkes-Mallows Index is not available for
+#> multiclass cases. The result has been recorded as NaN.
 #> Warning in metrica::preval(data = ~., obs = ~labels, pred = ~predictions, : For
 #> multiclass cases, prevalence should be estimated at a class level. A NaN has
 #> been recorded as the result. Please, use `atom = TRUE`
@@ -670,15 +681,15 @@ binomial_case %>% metrics_summary(data = ., obs = labels, pred = predictions, ty
 # Multiclass
 multinomial_case %>% metrics_summary(data = ., obs = labels, pred = predictions, type = "classification",
                                   metrics_list = selected_class_metrics)
-#> Warning in metrica::fscore(data = ~., obs = ~labels, pred = ~predictions, :
-#> For multiclass cases, the fscore should be estimated at a class level. Please,
+#> Warning in metrica::fscore(data = ~., obs = ~labels, pred = ~predictions, : For
+#> multiclass cases, the fscore should be estimated at a class level. Please,
 #> consider using `atom = TRUE`
-#> Warning in metrica::agf(data = ~., obs = ~labels, pred = ~predictions, pos_level
-#> = pos_level): For multiclass cases, the agf should be estimated at a class
-#> level. Please, consider using `atom = TRUE`
-#> Warning in metrica::fmi(data = ~., obs = ~labels, pred = ~predictions, pos_level
-#> = pos_level): The Fowlkes-Mallows Index is not available for multiclass cases.
-#> The result has been recorded as NaN.
+#> Warning in metrica::agf(data = ~., obs = ~labels, pred = ~predictions,
+#> pos_level = pos_level): For multiclass cases, the agf should be estimated at a
+#> class level. Please, consider using `atom = TRUE`
+#> Warning in metrica::fmi(data = ~., obs = ~labels, pred = ~predictions,
+#> pos_level = pos_level): The Fowlkes-Mallows Index is not available for
+#> multiclass cases. The result has been recorded as NaN.
 #> Warning in metrica::preval(data = ~., obs = ~labels, pred = ~predictions, : For
 #> multiclass cases, prevalence should be estimated at a class level. A NaN has
 #> been recorded as the result. Please, use `atom = TRUE`
@@ -691,6 +702,7 @@ multinomial_case %>% metrics_summary(data = ., obs = labels, pred = predictions,
 ```
 
 ``` r
+
 multinomial_case %>% accuracy(data = ., obs = labels, pred = predictions, tidy=TRUE)
 #>   accuracy
 #> 1     0.32
@@ -710,15 +722,15 @@ multinomial_case %>% balacc(data = ., obs = labels, pred = predictions, tidy=TRU
 #>     balacc
 #> 1 0.490305
 multinomial_case %>% fscore(data = ., obs = labels, pred = predictions, tidy=TRUE)
-#> Warning in fscore(data = ., obs = labels, pred = predictions, tidy = TRUE):
-#> For multiclass cases, the fscore should be estimated at a class level. Please,
+#> Warning in fscore(data = ., obs = labels, pred = predictions, tidy = TRUE): For
+#> multiclass cases, the fscore should be estimated at a class level. Please,
 #> consider using `atom = TRUE`
 #>      fscore
 #> 1 0.3202471
 multinomial_case %>% agf(data = ., obs = labels, pred = predictions, tidy=TRUE)
 #> Warning in agf(data = ., obs = labels, pred = predictions, tidy = TRUE): For
-#> multiclass cases, the agf should be estimated at a class level. Please, consider
-#> using `atom = TRUE`
+#> multiclass cases, the agf should be estimated at a class level. Please,
+#> consider using `atom = TRUE`
 #>         agf
 #> 1 0.3202471
 multinomial_case %>% gmean(data = ., obs = labels, pred = predictions, tidy=TRUE)
@@ -732,8 +744,8 @@ multinomial_case %>% mcc(data = ., obs = labels, pred = predictions, tidy=TRUE)
 #> 1 -0.01926552
 multinomial_case %>% fmi(data = ., obs = labels, pred = predictions, tidy=TRUE)
 #> Warning in fmi(data = ., obs = labels, pred = predictions, tidy = TRUE): The
-#> Fowlkes-Mallows Index is not available for multiclass cases. The result has been
-#> recorded as NaN.
+#> Fowlkes-Mallows Index is not available for multiclass cases. The result has
+#> been recorded as NaN.
 #>   fmi
 #> 1 NaN
 multinomial_case %>% posLr(data = ., obs = labels, pred = predictions, tidy=TRUE)
@@ -783,3 +795,33 @@ multinomial_case %>% AUC_roc(data = ., obs = labels, pred = predictions, tidy=TR
 
 Please, visit the
 [vignette](https://adriancorrendo.github.io/metrica/articles/apsim_open.html)
+
+## 5. Contributing to our package
+
+Thank you for considering contributing to our open-source project.
+Although we are not directly funded to maintain `metrica`, we care about
+reproducible science, like you. Thus, all contributions are more than
+welcome!
+
+There are multiple ways you can contribute to `metrica` such as asking
+questions, propose ideas, report bugs, improve the vignettes &
+documentation of functions, as well as contributing with code, of
+course.
+
+For comments, suggestions, and bug reports, we highly encourage to use
+[our GitHub issues
+section](https://github.com/adriancorrendo/metrica/issues).
+
+To improve the documentation and contribute with code, we encourage to
+[fork the
+repo](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)
+and use [pull
+requests](https://docs.github.com/en/get-started/quickstart/contributing-to-projects#making-a-pull-request)
+to contribute code.
+
+## 6. Code of Conduct
+
+Please note that the metrica project is released with a [Contributor
+Code of
+Conduct](https://adriancorrendo.github.io/metrica/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.
