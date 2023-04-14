@@ -1,5 +1,5 @@
 ---
-title: "APSIM: Importing APSIM Classic and NewGeneration files"
+title: "Importing APSIM Classic and NewGeneration files"
 author: "Rai Schwalbert & Adrian Correndo"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
@@ -38,7 +38,7 @@ library(tidyr)
 
 
 ### 1. APSIM Classic (.out)  
-```{r warning=FALSE, message=FALSE}
+```{r warning=FALSE, message=FALSE, include=TRUE, echo=TRUE, eval=FALSE}
 # Obtaining filepath from package folder
 apsim_out_filepath <- system.file("extdata/soybean.out", package = "metrica")
 
@@ -48,8 +48,8 @@ soybean.out <- metrica::import_apsim_out(filepath = apsim_out_filepath)
 head(soybean.out)
 ```
 
-### 1. APSIM NextGeneration (.db) 
-```{r warning=FALSE, message=FALSE}
+### 2. APSIM NextGeneration (.db) 
+```{r warning=FALSE, message=FALSE, include=TRUE, echo=TRUE, eval=FALSE}
 # Obtaining path from package folder
 apsim_db_folderpath <- system.file("extdata", package = "metrica")
 

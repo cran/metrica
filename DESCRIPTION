@@ -1,7 +1,7 @@
 Package: metrica
 Title: Prediction Performance Metrics
-Version: 2.0.2
-Date: 2023-04-02
+Version: 2.0.3
+Date: 2023-04-12
 Authors@R: c(
     person("Adrian A.", "Correndo", email = "correndo@ksu.edu", role = c("cre", "cph"), comment = c(ORCID = "0000-0002-4172-289X")),
     person("Adrian A.", "Correndo", email = "correndo@ksu.edu", role = c("aut"), comment = c(ORCID = "0000-0002-4172-289X")),
@@ -26,7 +26,7 @@ VignetteBuilder: knitr
 URL: https://adriancorrendo.github.io/metrica/
 BugReports: https://github.com/adriancorrendo/metrica/issues
 NeedsCompilation: no
-Packaged: 2023-04-02 22:05:23 UTC; correndo
+Packaged: 2023-04-14 04:29:36 UTC; correndo
 Author: Adrian A. Correndo [cre, cph] (<https://orcid.org/0000-0002-4172-289X>),
   Adrian A. Correndo [aut] (<https://orcid.org/0000-0002-4172-289X>),
   Luiz H. Moro Rosso [aut] (<https://orcid.org/0000-0002-8642-911X>),
@@ -38,4 +38,4 @@ Author: Adrian A. Correndo [cre, cph] (<https://orcid.org/0000-0002-4172-289X>),
   Ignacio A. Ciampitti [aut] (<https://orcid.org/0000-0001-9619-5129>)
 Maintainer: Adrian A. Correndo <correndo@ksu.edu>
 Repository: CRAN
-Date/Publication: 2023-04-02 22:30:09 UTC
+Date/Publication: 2023-04-14 04:50:02 UTC
