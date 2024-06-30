@@ -16,18 +16,18 @@ data(wheat)
 # Printing first observations
 head(wheat)
 
-## ----scatter_plot PO, fig.width=5, fig.height=4, dpi=200----------------------
+## ----scatter_plot PO, fig.width=5, fig.height=4, dpi=90, warning=FALSE, message=FALSE----
 scatter_plot(data = wheat, 
              obs = obs, 
              pred = pred)
 
-## ----scatter_plot OP, fig.width=5, fig.height=4, dpi=200----------------------
+## ----scatter_plot OP, fig.width=5, fig.height=4, dpi=90, warning=FALSE, message=FALSE----
 scatter_plot(data = wheat, 
              obs = obs, 
              pred = pred,
              orientation = "OP")
 
-## ----scatter_plot custom, fig.width=5, fig.height=4, dpi=200------------------
+## ----scatter_plot custom, fig.width=5, fig.height=4, dpi=90, warning=FALSE, message=FALSE----
 scatter_plot(data = wheat, 
              obs = obs, 
              pred = pred,
@@ -40,7 +40,8 @@ scatter_plot(data = wheat,
        y = "Observed wheat N content (g N/m2)")+
   theme_dark()
 
-## ----bland-altman, fig.width=5, fig.height=4, dpi=200-------------------------
+
+## ----bland-altman, fig.width=5, fig.height=4, dpi=90,  warning=FALSE, message=FALSE----
 bland_altman_plot(data = wheat,
                   obs = obs, 
                   pred = pred)
@@ -74,7 +75,7 @@ metrics_summary(data = wheat,
                 metrics_list = my.metrics) 
 
 
-## ----metrics time-series, fig.width=6, fig.height=5, dpi=200------------------
+## ----metrics time-series, fig.width=6, fig.height=5, dpi=90-------------------
 set.seed(165)
 
 wheat_time <- metrica::wheat %>% sample_n(., size = 20) %>% 
@@ -109,13 +110,13 @@ metrica::MASE(data = wheat_time, obs = obs, pred = pred,
 
 
 
-## ----scatter_plot, fig.width=6, fig.height=5, dpi=200-------------------------
+## ----scatter_plot, fig.width=6, fig.height=5, dpi=90--------------------------
 scatter_plot(data = wheat,
              obs = obs, 
              pred = pred)
 
 
-## ----scatter_plot print_metrics, fig.width=6, fig.height=5, dpi=200-----------
+## ----scatter_plot print_metrics, fig.width=6, fig.height=5, dpi=90------------
 
 my.metrica.plot <- scatter_plot(data = wheat,
                                 obs = obs, 
@@ -125,7 +126,7 @@ my.metrica.plot <- scatter_plot(data = wheat,
 my.metrica.plot
 
 
-## ----scatter_plot.edit, fig.width=6, fig.height=5, dpi=200--------------------
+## ----scatter_plot.edit, fig.width=6, fig.height=5, dpi=90---------------------
 
 my.metrica.plot +
   # Modify labels

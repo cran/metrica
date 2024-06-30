@@ -12,7 +12,7 @@
 
 <meta name="author" content="Luciana Nieto &amp; Adrian Correndo" />
 
-<meta name="date" content="2023-04-13" />
+<meta name="date" content="2024-06-30" />
 
 <title>Classification performance metrics and indices</title>
 
@@ -240,7 +240,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <h1 class="title toc-ignore">Classification performance metrics and
 indices</h1>
 <h4 class="author">Luciana Nieto &amp; Adrian Correndo</h4>
-<h4 class="date">2023-04-13</h4>
+<h4 class="date">2024-06-30</h4>
 
 
 
@@ -260,8 +260,8 @@ value (npv), positive and negative likelihood ratios (posLr, negLr),
 diagnostic odds ratio (dor), prevalence (preval), prevalence threshold
 (preval_t), critical success index (csi, a.k.a. threat score), false
 positive rate (FPR), false negative rate (FNR), false detection rate
-(FDR), false omission rate (FOR), and area under the ROC curve
-(AUC_roc). <br /></p>
+(FDR), false omission rate (FOR), area under the ROC curve (AUC_roc),
+and the P4-metric (p4). <br /></p>
 <p>For supervised models, always keep in mind the concept of
 “cross-validation” since predicted values should ideally come from
 out-of-bag samples (unseen by training sets) to avoid overestimation of
@@ -397,8 +397,8 @@ specificity}{2}\)</span></td>
 classes</td>
 <td align="left"><span class="math inline">\(agf = \sqrt{F_2 *
 invF_{0.5}}\)</span>, where <span class="math inline">\(F_2 = 5 *
-\frac{recall~*~precision}{(4*recall)~+~precision}\)</span>, and <span class="math inline">\(invF_{0.5} = (\frac{5}{4}) *
-\frac{recall~*~precision}{(0.5^2 ~*~ recall)~+~precision}\)</span></td>
+\frac{precision~*~recall}{(4*precision)~+~recall}\)</span>, and <span class="math inline">\(invF_{0.5} = (\frac{5}{4}) *
+\frac{npv~*~specificity}{(0.5^2 ~*~ npv)~+~specificity}\)</span></td>
 </tr>
 <tr class="odd">
 <td align="left">9</td>
@@ -579,11 +579,24 @@ PPV + NPV -1\)</span></td>
 <td align="left">Area Under the Curve</td>
 <td align="left">The <code>AUC_roc</code> estimates the area under the
 receiving operator characteristic curve following the trapezoid
-approach. It bounded between 0 and 1. The closet to 1 the better.
+approach. It is bounded between 0 and 1. The closet to 1 the better.
 AUC_roc = 0.5 means the models predictions are the same than a random
 classifier.</td>
 <td align="left"><span class="math inline">\(AUC_{roc} = precision+npv-1
 = PPV + NPV -1\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left">27</td>
+<td align="left"><code>p4</code></td>
+<td align="left">P4-metric</td>
+<td align="left">The <code>p4</code> estimates the P-4 following Sitarz
+(2023) as an extension of the <code>F-score</code>. It is bounded
+between 0 and 1. The closet to 1 the better. It integrates four metrics:
+<code>precision</code>, <code>recall</code>, <code>specificity</code>,
+and <code>npv</code>.</td>
+<td align="left"><span class="math inline">\(p4 = \frac{4}
+{\frac{1}{precision} + \frac{1}{recall} + \frac{1}{specificity} +
+\frac{1}{npv} }\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -600,6 +613,7 @@ classifier.</td>
 <p>FPR = false positive rate</p>
 <p>FNR = false negative rate</p>
 <p>ppv = positive predictive value</p>
+<p>npv = negative predictive value</p>
 <p>B = coefficient B (a.k.a. beta) indicating the weight to be applied
 to the estimation of <code>fscore</code> (as <span class="math inline">\(B^2\)</span>).</p>
 </div>
@@ -680,6 +694,8 @@ area under the ROC curve for multiple class classification problems.
 <li><p>Mandrekar, J.N. (2010). Receiver operating characteristic curve
 in diagnostic test assessment. <em>J. Thoracic Oncology 5(9):
 1315-1316</em> </p></li>
+<li><p>Sitarz, M. (2023). Extending F1 metric, probabilistic approach.
+<em>Adv. Artif. Intell. Mach. Learn., 3 (2):1025-1038.</em> </p></li>
 </ol>
 </div>
 

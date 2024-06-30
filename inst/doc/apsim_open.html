@@ -12,7 +12,7 @@
 
 <meta name="author" content="Rai Schwalbert &amp; Adrian Correndo" />
 
-<meta name="date" content="2023-04-13" />
+<meta name="date" content="2024-06-30" />
 
 <title>Importing APSIM Classic and NewGeneration files</title>
 
@@ -341,7 +341,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <h1 class="title toc-ignore">Importing APSIM Classic and NewGeneration
 files</h1>
 <h4 class="author">Rai Schwalbert &amp; Adrian Correndo</h4>
-<h4 class="date">2023-04-13</h4>
+<h4 class="date">2024-06-30</h4>
 
 
 
@@ -362,26 +362,26 @@ APSIM output files in R. <br /></p>
 <br /></p>
 <div id="apsim-classic-.out" class="section level3">
 <h3>1. APSIM Classic (.out)</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtaining filepath from package folder</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>apsim_out_filepath <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata/soybean.out&quot;</span>, <span class="at">package =</span> <span class="st">&quot;metrica&quot;</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Use import_apsim_out for APSIM Classic output</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>soybean.out <span class="ot">&lt;-</span> metrica<span class="sc">::</span><span class="fu">import_apsim_out</span>(<span class="at">filepath =</span> apsim_out_filepath)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(soybean.out)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co"># Obtaining filepath from package folder</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>apsim_out_filepath <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata/soybean.out&quot;</span>, <span class="at">package =</span> <span class="st">&quot;metrica&quot;</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="co"># Use import_apsim_out for APSIM Classic output</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>soybean.out <span class="ot">&lt;-</span> metrica<span class="sc">::</span><span class="fu">import_apsim_out</span>(<span class="at">filepath =</span> apsim_out_filepath)</span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="fu">head</span>(soybean.out)</span></code></pre></div>
 </div>
 <div id="apsim-nextgeneration-.db" class="section level3">
 <h3>2. APSIM NextGeneration (.db)</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtaining path from package folder</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>apsim_db_folderpath <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="at">package =</span> <span class="st">&quot;metrica&quot;</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Use import_apsim_db for APSIM NextGeneration output</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>soybean.db <span class="ot">&lt;-</span> metrica<span class="sc">::</span><span class="fu">import_apsim_db</span>(<span class="at">filename =</span> <span class="st">&quot;soybean.example.db&quot;</span>, <span class="at">folder =</span> apsim_db_folderpath)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(soybean.db)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># If observed.data is already as a dataframe, the user may do the match using a simple code like this:</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># PO.dataframe &lt;- simulated.data %&gt;% left_join(., observed.data) *by = &quot;col&quot; arg. could be required*</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="co"># Obtaining path from package folder</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>apsim_db_folderpath <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="at">package =</span> <span class="st">&quot;metrica&quot;</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="co"># Use import_apsim_db for APSIM NextGeneration output</span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>soybean.db <span class="ot">&lt;-</span> metrica<span class="sc">::</span><span class="fu">import_apsim_db</span>(<span class="at">filename =</span> <span class="st">&quot;soybean.example.db&quot;</span>, <span class="at">folder =</span> apsim_db_folderpath)</span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="fu">head</span>(soybean.db)</span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="co"># If observed.data is already as a dataframe, the user may do the match using a simple code like this:</span></span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="co"># PO.dataframe &lt;- simulated.data %&gt;% left_join(., observed.data) *by = &quot;col&quot; arg. could be required*</span></span></code></pre></div>
 </div>
 </div>
 

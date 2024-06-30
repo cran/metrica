@@ -1,10 +1,9 @@
 Package: metrica
 Title: Prediction Performance Metrics
-Version: 2.0.3
-Date: 2023-04-12
+Version: 2.1.0
+Date: 2024-06-30
 Authors@R: c(
-    person("Adrian A.", "Correndo", email = "correndo@ksu.edu", role = c("cre", "cph"), comment = c(ORCID = "0000-0002-4172-289X")),
-    person("Adrian A.", "Correndo", email = "correndo@ksu.edu", role = c("aut"), comment = c(ORCID = "0000-0002-4172-289X")),
+    person("Adrian A.", "Correndo", email = "acorrend@uoguelph.ca", role = c("aut", "cre", "cph"), comment = c(ORCID = "0000-0002-4172-289X")),
     person("Luiz H.", "Moro Rosso", email = "lhmrosso@ksu.edu", role = "aut", comment = c(ORCID = "0000-0002-8642-911X")),
     person("Rai", "Schwalbert", email = "rai.schwalbert@hotmail.com", role = "aut", comment = c(ORCID = "0000-0001-8488-7507")),
     person("Carlos", "Hernandez", email = "carlosh92@ksu.edu", role = "aut", comment = c(ORCID = "0000-0001-5171-2516")),
@@ -16,7 +15,7 @@ Description: A compilation of more than 80 functions designed to quantitatively 
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1
 Depends: R (>= 3.6.0)
 Suggests: purrr, knitr, rmarkdown, apsimx, testthat (>= 3.0.0)
 Config/testthat/edition: 3
@@ -26,9 +25,9 @@ VignetteBuilder: knitr
 URL: https://adriancorrendo.github.io/metrica/
 BugReports: https://github.com/adriancorrendo/metrica/issues
 NeedsCompilation: no
-Packaged: 2023-04-14 04:29:36 UTC; correndo
-Author: Adrian A. Correndo [cre, cph] (<https://orcid.org/0000-0002-4172-289X>),
-  Adrian A. Correndo [aut] (<https://orcid.org/0000-0002-4172-289X>),
+Packaged: 2024-06-30 13:37:36 UTC; acorrend
+Author: Adrian A. Correndo [aut, cre, cph]
+    (<https://orcid.org/0000-0002-4172-289X>),
   Luiz H. Moro Rosso [aut] (<https://orcid.org/0000-0002-8642-911X>),
   Rai Schwalbert [aut] (<https://orcid.org/0000-0001-8488-7507>),
   Carlos Hernandez [aut] (<https://orcid.org/0000-0001-5171-2516>),
@@ -36,6 +35,6 @@ Author: Adrian A. Correndo [cre, cph] (<https://orcid.org/0000-0002-4172-289X>),
   Luciana Nieto [aut] (<https://orcid.org/0000-0002-7172-0799>),
   Dean Holzworth [aut],
   Ignacio A. Ciampitti [aut] (<https://orcid.org/0000-0001-9619-5129>)
-Maintainer: Adrian A. Correndo <correndo@ksu.edu>
+Maintainer: Adrian A. Correndo <acorrend@uoguelph.ca>
 Repository: CRAN
-Date/Publication: 2023-04-14 04:50:02 UTC
+Date/Publication: 2024-06-30 14:20:02 UTC

@@ -24,7 +24,7 @@ multi_maize_phen <- metrica::maize_phenology
 # Printing first observations
 head(multi_maize_phen)
 
-## ----confusion_matrix binary, fig.width=6, fig.height=5, dpi=120--------------
+## ----confusion_matrix binary, fig.width=6, fig.height=5, dpi=60---------------
 # a. Print
 binary_landCover %>% confusion_matrix(obs = actual, pred = predicted, 
                                       plot = FALSE,
@@ -43,7 +43,7 @@ binary_landCover %>% confusion_matrix(obs = actual, pred = predicted,
                                       unit = "proportion")
 
 
-## ----confusion_matrix multiclass, fig.width=6, fig.height=5, dpi=120----------
+## ----confusion_matrix multiclass, fig.width=6, fig.height=5, dpi=60-----------
 # a. Print
 multi_maize_phen %>% confusion_matrix(obs = actual, pred = predicted, 
                                       plot = FALSE, 
@@ -203,7 +203,7 @@ binary_folds_summary_3 <- non_nested_folds %>%
 binary_folds_summary_3
 
 
-## ----scatter_plot print_metrics, fig.width=6, fig.height=5, dpi=120-----------
+## ----scatter_plot print_metrics, fig.width=6, fig.height=5, dpi=60------------
 
 selected_metrics <- c("accuracy", "precision", "recall", "khat",
                    "mcc", "fscore", "agf", "npv", "FPR", "FNR")
@@ -239,7 +239,7 @@ multinomial_matrix_metrics <-
 multinomial_matrix_metrics
 
 
-## ----scatter_plot.edit, fig.width=6, fig.height=5, dpi=120--------------------
+## ----scatter_plot.edit, fig.width=6, fig.height=5, dpi=60---------------------
 
 binary_matrix_metrics +
   # Modify labels
