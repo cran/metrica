@@ -106,8 +106,8 @@ confusion_matrix <- function(data = NULL, obs, pred,
           ggplot2::scale_fill_gradient(low= palette[[1]], high = palette[[2]])} +
         { if(!is.null(colors[1]))
         ggplot2::scale_color_gradient(low= palette[[1]], high = palette[[2]]) } +
-        ggplot2::scale_size_manual(values = c(0,2))+
-        ggplot2::guides(size = "none")+
+        ggplot2::scale_linewidth_manual(values = c(`FALSE` = 0.15, `TRUE` = 1.1)) +
+        ggplot2::guides(linewidth = "none")+
         ggplot2::labs(x = "Observed",y = "Predicted")+
         ggplot2::scale_x_discrete(position="top")+
         ggplot2::scale_y_discrete(limits=rev(levels))+
@@ -131,8 +131,8 @@ confusion_matrix <- function(data = NULL, obs, pred,
             ggplot2::scale_fill_gradient(low= palette[[1]], high = palette[[2]])} +
           { if(!is.null(colors[1]))
             ggplot2::scale_color_gradient(low= palette[[1]], high = palette[[2]]) } +
-          ggplot2::scale_size_manual(values = c(0,2))+
-          ggplot2::guides(size = "none")+
+          ggplot2::scale_linewidth_manual(values = c(`FALSE` = 0.15, `TRUE` = 1.1)) +
+          ggplot2::guides(linewidth = "none")+
           ggplot2::labs(x = "Observed",y = "Predicted")+
           ggplot2::scale_x_discrete(position="top")+
           ggplot2::scale_y_discrete(limits=rev(levels))+

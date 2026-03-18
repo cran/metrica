@@ -141,17 +141,17 @@ my.metrica.plot +
   theme_dark()
 
 ## ----export metrics_summary, eval=F-------------------------------------------
-#  metrics_summary(data = wheat,
-#                  obs = obs,
-#                  pred = pred,
-#                  type = "regression") %>%
-#    write.csv("metrics_summary.csv")
-#  
+# metrics_summary(data = wheat,
+#                 obs = obs,
+#                 pred = pred,
+#                 type = "regression") %>%
+#   write.csv("metrics_summary.csv")
+# 
 
 ## ----export plot, eval=F------------------------------------------------------
-#  
-#  ggsave(plot = my.metrica.plot,
-#         "scatter_metrics.png",
-#         width = 5,
-#         height = 5)
+# 
+# ggsave(plot = my.metrica.plot,
+#        "scatter_metrics.png",
+#        width = 5,
+#        height = 5)
 

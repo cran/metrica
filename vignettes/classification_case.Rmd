@@ -37,6 +37,7 @@ library(metrica)
 library(dplyr)
 library(purrr)
 library(tidyr)
+library(ggplot2)
 ```
 
 ## 2. Example datasets  <br/>
@@ -344,9 +345,8 @@ binary_folds_summary_2
 # Using summarise()
 binary_folds_summary_3 <- non_nested_folds %>% 
   dplyr::group_by(id) %>% 
-  dplyr::summarise(metrics_summary(obs = actual, pred = predicted, type = "classification")) %>%
+  dplyr::reframe(metrics_summary(obs = actual, pred = predicted, type = "classification")) %>%
   dplyr::arrange(Metric)
-
 
 binary_folds_summary_3
 
@@ -421,8 +421,8 @@ To export the metrics summary table, the user can simply write it to file with t
 
 ```{r export metrics_summary, eval=F }
 metrics_summary(data = binary_landCover,
-                obs = obs, 
-                pred = pred,
+                obs = actual, 
+                pred = predicted,
                 type = "classification") %>%
   write.csv("binary_landcover_metrics_summary.csv")
 

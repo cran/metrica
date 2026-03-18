@@ -9,6 +9,7 @@ library(metrica)
 library(dplyr)
 library(purrr)
 library(tidyr)
+library(ggplot2)
 
 ## ----load binary data---------------------------------------------------------
 # Load
@@ -196,9 +197,8 @@ binary_folds_summary_2
 # Using summarise()
 binary_folds_summary_3 <- non_nested_folds %>% 
   dplyr::group_by(id) %>% 
-  dplyr::summarise(metrics_summary(obs = actual, pred = predicted, type = "classification")) %>%
+  dplyr::reframe(metrics_summary(obs = actual, pred = predicted, type = "classification")) %>%
   dplyr::arrange(Metric)
-
 
 binary_folds_summary_3
 
@@ -259,17 +259,17 @@ multinomial_matrix_metrics +
 
 
 ## ----export metrics_summary, eval=F-------------------------------------------
-#  metrics_summary(data = binary_landCover,
-#                  obs = obs,
-#                  pred = pred,
-#                  type = "classification") %>%
-#    write.csv("binary_landcover_metrics_summary.csv")
-#  
+# metrics_summary(data = binary_landCover,
+#                 obs = actual,
+#                 pred = predicted,
+#                 type = "classification") %>%
+#   write.csv("binary_landcover_metrics_summary.csv")
+# 
 
 ## ----export plot, eval=F------------------------------------------------------
-#  
-#  ggsave(plot = multinomial_matrix_metrics,
-#         "multinomial_matrix_metrics.png",
-#         width = 8,
-#         height = 7)
+# 
+# ggsave(plot = multinomial_matrix_metrics,
+#        "multinomial_matrix_metrics.png",
+#        width = 8,
+#        height = 7)
 

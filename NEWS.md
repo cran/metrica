@@ -1,3 +1,12 @@
+# metrica 2.1.1
+
+* Fixed vignette compatibility with current dplyr by replacing `summarise()` with `reframe()` where multiple rows are returned per group.
+* Resolved vignette rebuild failure in `classification_case.Rmd`.
+
+#####################################################################################################
+
+- PREVIOUS VERSIONS
+
 # metrica 2.1.0
 
 Updates on this version:
@@ -20,10 +29,6 @@ Special thanks to Gilles Koumou for pointing out the error and helping to fix it
 6) replacing 'size' argument with 'linewidth' within plot functions using wrappers of ggplot2.
 
 7) replacing deprecated 'aes_string()' within several plot functions with 'aes()' following latest ggplot2 updates.
-
-#####################################################################################################
-
-- PREVIOUS VERSIONS
 
 # metrica 2.0.3
 This version fixes an issue found for Debian for Importing APSIM NewGeneration files that violated CRAN Policy's.
